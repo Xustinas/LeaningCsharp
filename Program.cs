@@ -7,27 +7,35 @@ namespace LeaningCsharp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please enter lucky number");
-            int lucky = Convert.ToInt32(Console.ReadLine());
-            int num = new Random().Next(0, 100);
-            int count = 0;
-            while (lucky!=num)
+            Console.WriteLine("Enter numbers of fibinachi");
+            int len = Convert.ToInt32(Console.ReadLine());
+
+
+            int a = 0, b = 1, c = 0;
+
+            for (int i = 0; i < len; i++)
             {
-                count += 1;
-                Console.WriteLine("Total count {0}", count);
-                if (lucky<num)
-                {
-                    Console.WriteLine("Number is higher");
-                    lucky = Convert.ToInt32(Console.ReadLine());
-                }
-                else
-                {
-                    Console.WriteLine("Number is lower");
-                    lucky = Convert.ToInt32(Console.ReadLine());
-                }
-               
+                c = a + b;
+                a = b;
+                b = c;
+                Console.WriteLine(c);
             }
-            Console.WriteLine("Bingo!!!!!");
+
+            // Fibonacci_Recursive(len);
+            // static void Fibonacci_Recursive(int len)
+            // {
+            //     Fibonacci_Rec_Temp(0, 1, 1, len);
+            // }
+            // static void Fibonacci_Rec_Temp(int a, int b, int counter, int len)
+            // {
+            //     if (counter <= len)
+            //     {
+            //         Console.Write("{0} ", a);
+            //         Fibonacci_Rec_Temp(b, a + b, counter + 1, len);
+            //
+            //     }
+            // }
+
         }
     }
 }
