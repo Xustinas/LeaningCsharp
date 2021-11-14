@@ -7,40 +7,55 @@ namespace LeaningCsharp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please enter lucky number");
-            int lucky = Convert.ToInt32(Console.ReadLine());
-            int num = new Random().Next(0, 100);
-            int count = 0;
-            bool con = false;
-            while (lucky!=num)
+
+            char op;
+            int first;
+            int second;
+            double result;
+            char esc = (char)27;
+            do
             {
-                count += 1;
-                Console.WriteLine("Total count {0}", count);
-                if (lucky<num)
+                Console.WriteLine("Please enter  operation and two numbers number or if you wanna end enter 'n' or '0'");
+                 op = Console.ReadKey(true).KeyChar;
+                if (op == esc || op == esc)
                 {
-                    Console.WriteLine("Number is higher");
-                    lucky = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Do you wanna continue true/false");
-                    con = Convert.ToBoolean(Console.ReadLine());
-                    if (con=false)
-                    {
-                        break;
-                    }
+                    break;
                 }
+                first = Convert.ToInt32(Console.ReadLine());
+                second = Convert.ToInt32(Console.ReadLine());
+                if (op == '+')
+                {
+                    result = first + second;
+                    Console.WriteLine($"{first} {op} {second} = {result}");
+                }
+                else if (op == '-')
+                {
+                    result = first - second;
+                    Console.WriteLine($"{first} {op} {second} = {result}");
+                }
+                else if (op == '*')
+                {
+                    result = first * second;
+                    Console.WriteLine($"{first} {op} {second} = {result}");
+                }
+                else if (op == '/')
+                {
+                    if (second==0)
+                    {
+                        Console.WriteLine("cannot be divided by 0");
+                        continue;
+                    }
+                    result = first / second;
+                    Console.WriteLine($"{first} {op} {second} = {result}");
+                }
+           
                 else
                 {
-                    Console.WriteLine("Number is lower");
-                    lucky = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Do you wanna continue true/false");
-                    con = Convert.ToBoolean(Console.ReadLine());
-                    if (con = false)
-                    {
-                        break;
-                    }
+                    Console.WriteLine("Bad operation entry");
                 }
-               
-            }
-            Console.WriteLine("Bingo!!!!!");
+                Console.WriteLine("");
+            } while (op != 'n' && op != '0');
+
         }
     }
 }
