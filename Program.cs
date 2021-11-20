@@ -8,54 +8,58 @@ namespace LeaningCsharp
         static void Main(string[] args)
         {
 
-            char op;
-            int first;
-            int second;
-            double result;
-            char esc = (char)27;
-            do
+
+            double bodyFat;
+
+            double H = Entry("Please enter your height");
+            double W = Entry("Please enter your weight");
+
+
+            bodyFat = KMI(H, W);
+            Console.WriteLine(bodyFat);
+
+            string body = Transaction(bodyFat);
+            Console.WriteLine($"Info about body fat: {body}");
+
+            double Entry(string message)
             {
-                Console.WriteLine("Please enter  operation and two numbers number or if you wanna end enter 'n' or '0'");
-                 op = Console.ReadKey(true).KeyChar;
-                if (op == esc || op == esc)
+                Console.WriteLine(message);
+                return Convert.ToDouble(Console.ReadLine());
+            }
+
+            double KMI(double H, double W)
+            {
+                return bodyFat = W / (H * H);
+            }  
+
+            string Transaction(double bodyFat)
+            {
+                if (bodyFat < 15)
                 {
-                    break;
+                    return "alkanas";
                 }
-                first = Convert.ToInt32(Console.ReadLine());
-                second = Convert.ToInt32(Console.ReadLine());
-                if (op == '+')
+                else if (bodyFat < 18.5)
                 {
-                    result = first + second;
-                    Console.WriteLine($"{first} {op} {second} = {result}");
+                    return "liesas";
                 }
-                else if (op == '-')
+                else if (bodyFat>18.5 && bodyFat < 25)
                 {
-                    result = first - second;
-                    Console.WriteLine($"{first} {op} {second} = {result}");
+                    return "normalus";
                 }
-                else if (op == '*')
+                else if (bodyFat>25 && bodyFat<30)
                 {
-                    result = first * second;
-                    Console.WriteLine($"{first} {op} {second} = {result}");
+                    return "virsvisko";
                 }
-                else if (op == '/')
+                else if (bodyFat>30 && bodyFat<40)
                 {
-                    if (second==0)
-                    {
-                        Console.WriteLine("cannot be divided by 0");
-                        continue;
-                    }
-                    result = first / second;
-                    Console.WriteLine($"{first} {op} {second} = {result}");
+                    return "nutukelis";
                 }
-           
                 else
                 {
-                    Console.WriteLine("Bad operation entry");
+                    return "nera info";
                 }
-                Console.WriteLine("");
-            } while (op != 'n' && op != '0');
-
+            }
+           
         }
     }
 }
