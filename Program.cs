@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 
 namespace SoloLearn
 {
@@ -7,37 +11,31 @@ namespace SoloLearn
     {
         static void Main(string[] args)
         {
+            Queue<int> q = new Queue<int>();
 
-            Elems<string> elems1 = new Elems<string>();
-            elems1.Add("John", "Tamara", "David");
-            elems1.Show();
+            while (q.Count < 3)
+            {
+                int num = Convert.ToInt32(Console.ReadLine());
+                //your code goes here 
+                q.Enqueue(num);
+                // To copy the queue into a new array, use the ToArray() method of the queue: int[] arr = queue.ToArray();.
+                // Then, recall the Array.Sort() method.
+            }
+
+            Console.Write("Queue: ");
+            foreach (int i in q)
+                Console.Write(i + " ");
 
             Console.WriteLine();
+            q.ToArray();
+            int[] arr = q.ToArray();
+            Array.Sort(arr);
+            Console.Write("Sorted: ");
+            foreach (int i in arr)
+                Console.Write(i + " ");
 
-            Elems<int> elems2 = new Elems<int>();
-            elems2.Add(5, 14, 13);
-            elems2.Show();
+            //your code goes here
 
-        }
-    }
-    //make this class generic
-    class Elems <T>
-    {
-        public T[] elements = new T[3];
-
-        public void Add(T elem1, T elem2, T elem3)
-        {
-            elements[0] = elem1;
-            elements[1] = elem2;
-            elements[2] = elem3;
-        }
-
-        public void Show()
-        {
-            foreach (T item in elements)
-            {
-                Console.Write(item + " ");
-            }
         }
     }
 }
