@@ -24,10 +24,11 @@ namespace SoloLearn
             metals.Add(metalName, price);
             int[] prices = metals.Values.ToArray();
             Array.Sort(prices);
+            var temp = prices.LastOrDefault();
             //your code goes here
 
-            var highest = metals.Where(x => x.Value == prices[4]).Select(x => x.Key);
-            Console.WriteLine("The most expensive: " + highest.FirstOrDefault());
+            var highest = metals.Where(x => x.Value == temp).Select(x=>x.Key);
+            Console.WriteLine("The most expensive: " + highest.First());
         }
     }
 }
