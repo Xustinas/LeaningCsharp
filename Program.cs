@@ -10,38 +10,28 @@ namespace SoloLearn
     {
         static void Main(string[] args)
         {
-            HashSet<string> candidates = new HashSet<string>();
+            int discount = Convert.ToInt32(Console.ReadLine());
+   
+            Dictionary<string, int> coffee = new Dictionary<string, int>();
+            coffee.Add("Americano", 50);
+            coffee.Add("Latte", 70);
+            coffee.Add("Flat White", 60);
+            coffee.Add("Espresso", 60);
+            coffee.Add("Cappuccino", 80);
+            coffee.Add("Mocha", 90);
 
-            candidates.Add("John");
-            candidates.Add("Amelie");
-            candidates.Add("Tom");
-            candidates.Add("Richard");
-            candidates.Add("Barbara");
-            candidates.Add("Susan");
-            candidates.Add("Charles");
-            candidates.Add("Daniel");
-            candidates.Add("Tamara");
-            candidates.Add("Donald");
-
-            HashSet<string> hiring = new HashSet<string>();
-
-            while (hiring.Count < 3)
+            foreach (var item in coffee)
             {
-
-                string hire = Console.ReadLine();
-                //add the names to hiring hash set
-                hiring.Add(hire);            
+               // coffee.Keys.ToArray();
+               
+              
+                Console.WriteLine(item.Key + ": " + CountDiscount(item.Value));
             }
-            //your code goes here
-            if (hiring.IsSubsetOf(candidates))
+             int CountDiscount( int number) 
             {
-                Console.WriteLine("Starting hiring process");
-            }
-            else
-            {
-                Console.WriteLine("Something is wrong");
-            }
-            
+               number-= number*discount/ 100;
+                return number;
+            }       
         }
     }
 }
