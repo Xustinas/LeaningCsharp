@@ -11,7 +11,7 @@ namespace SoloLearn
         static void Main(string[] args)
         {
             int discount = Convert.ToInt32(Console.ReadLine());
-   
+
             Dictionary<string, int> coffee = new Dictionary<string, int>();
             coffee.Add("Americano", 50);
             coffee.Add("Latte", 70);
@@ -24,11 +24,11 @@ namespace SoloLearn
             {
                 Console.WriteLine(item.Key + ": " + CountDiscount(item.Value));
             }
-             int CountDiscount( int number) 
+            int CountDiscount(int number)
             {
-               number-= number*discount/ 100;
+                number -= number * discount / 100;
                 return number;
-            }       
+            }
         }
     }
 }
