@@ -22,9 +22,6 @@ namespace SoloLearn
 
             foreach (var item in coffee)
             {
-               // coffee.Keys.ToArray();
-               
-              
                 Console.WriteLine(item.Key + ": " + CountDiscount(item.Value));
             }
              int CountDiscount( int number) 
