@@ -10,25 +10,38 @@ namespace SoloLearn
     {
         static void Main(string[] args)
         {
-            Dictionary<string, int> metals = new Dictionary<string, int>();
-            metals.Add("Platinum", 70);
-            metals.Add("Iridium", 20);
-            metals.Add("Palladium", 30);
-            metals.Add("Scandium", 12);
+            HashSet<string> candidates = new HashSet<string>();
 
-            string metalName = Console.ReadLine();
-            int price = Convert.ToInt32(Console.ReadLine());
+            candidates.Add("John");
+            candidates.Add("Amelie");
+            candidates.Add("Tom");
+            candidates.Add("Richard");
+            candidates.Add("Barbara");
+            candidates.Add("Susan");
+            candidates.Add("Charles");
+            candidates.Add("Daniel");
+            candidates.Add("Tamara");
+            candidates.Add("Donald");
 
-            //add 5th metal details to dictionary
+            HashSet<string> hiring = new HashSet<string>();
 
-            metals.Add(metalName, price);
-            int[] prices = metals.Values.ToArray();
-            Array.Sort(prices);
-            var temp = prices.LastOrDefault();
+            while (hiring.Count < 3)
+            {
+
+                string hire = Console.ReadLine();
+                //add the names to hiring hash set
+                hiring.Add(hire);            
+            }
             //your code goes here
-
-            var highest = metals.Where(x => x.Value == temp).Select(x=>x.Key);
-            Console.WriteLine("The most expensive: " + highest.First());
+            if (hiring.IsSubsetOf(candidates))
+            {
+                Console.WriteLine("Starting hiring process");
+            }
+            else
+            {
+                Console.WriteLine("Something is wrong");
+            }
+            
         }
     }
 }
