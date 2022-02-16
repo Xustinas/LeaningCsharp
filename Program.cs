@@ -4,38 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace SoloLearn
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Queue<int> q = new Queue<int>();
+            Dictionary<string, int> metals = new Dictionary<string, int>();
+            metals.Add("Platinum", 70);
+            metals.Add("Iridium", 20);
+            metals.Add("Palladium", 30);
+            metals.Add("Scandium", 12);
 
-            while (q.Count < 3)
-            {
-                int num = Convert.ToInt32(Console.ReadLine());
-                //your code goes here 
-                q.Enqueue(num);
-                // To copy the queue into a new array, use the ToArray() method of the queue: int[] arr = queue.ToArray();.
-                // Then, recall the Array.Sort() method.
-            }
+            string metalName = Console.ReadLine();
+            int price = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Queue: ");
-            foreach (int i in q)
-                Console.Write(i + " ");
+            //add 5th metal details to dictionary
 
-            Console.WriteLine();
-            q.ToArray();
-            int[] arr = q.ToArray();
-            Array.Sort(arr);
-            Console.Write("Sorted: ");
-            foreach (int i in arr)
-                Console.Write(i + " ");
-
+            metals.Add(metalName, price);
+            int[] prices = metals.Values.ToArray();
+            Array.Sort(prices);
             //your code goes here
 
+            var highest = metals.Where(x => x.Value == prices[4]).Select(x => x.Key);
+            Console.WriteLine("The most expensive: " + highest.FirstOrDefault());
         }
     }
 }
