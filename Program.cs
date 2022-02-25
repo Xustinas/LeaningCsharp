@@ -1,9 +1,6 @@
 ﻿using LeaningCsharp;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace SoloLearn
 {
@@ -11,17 +8,25 @@ namespace SoloLearn
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please enter id");
-
-            if (Int32.TryParse(Console.ReadLine(), out int number))
+            string entry;
+            do
             {
-                CollectionOfItems collection = new CollectionOfItems();
-                collection.CheckIfNumberExists(number);
-            }
-            else
-            {
-                Console.WriteLine("Entry could not be parsed.");
-            }
+                Console.WriteLine("Please enter id");
+                entry = Console.ReadLine().ToLower();
+                if (Int32.TryParse(entry, out int number))
+                {
+                    CollectionOfItems collection = new CollectionOfItems();
+                    collection.PrintTitle(number);
+                }
+                else
+                {
+                    if (entry == "exit")
+                    {
+                        break;
+                    }
+                    Console.WriteLine("Entry could not be parsed.");
+                }
+            } while (true);
         }
     }
 }
