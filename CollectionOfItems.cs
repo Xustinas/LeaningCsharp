@@ -25,6 +25,5 @@ namespace LeaningCsharp
                 Console.WriteLine("Sorry this there is no data with this id");
             }
         }
-
     }
 }
