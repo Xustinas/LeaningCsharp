@@ -11,17 +11,17 @@ namespace SoloLearn
     {
         static void Main(string[] args)
         {
-            
-                if (Int32.TryParse(Console.ReadLine(), out int number))
-                {
-                    CollectionOfItems collection = new CollectionOfItems();
-                    collection.CheckIfNumberExists(number);
-                }
-                else
-                {
-                    Console.WriteLine("Entry could not be parsed.");
-                }
-            }                    
-        }      
-    }
+            Console.WriteLine("Please enter id");
 
+            if (Int32.TryParse(Console.ReadLine(), out int number))
+            {
+                CollectionOfItems collection = new CollectionOfItems();
+                collection.CheckIfNumberExists(number);
+            }
+            else
+            {
+                Console.WriteLine("Entry could not be parsed.");
+            }
+        }
+    }
+}
