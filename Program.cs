@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeaningCsharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,25 +11,20 @@ namespace SoloLearn
     {
         static void Main(string[] args)
         {
-            int discount = Convert.ToInt32(Console.ReadLine());
-
-            Dictionary<string, int> coffee = new Dictionary<string, int>();
-            coffee.Add("Americano", 50);
-            coffee.Add("Latte", 70);
-            coffee.Add("Flat White", 60);
-            coffee.Add("Espresso", 60);
-            coffee.Add("Cappuccino", 80);
-            coffee.Add("Mocha", 90);
-
-            foreach (var item in coffee)
+            while (true)
             {
-                Console.WriteLine(item.Key + ": " + CountDiscount(item.Value));
+                if (Int32.TryParse(Console.ReadLine(), out int number))
+                {
+                    CollectionOfItems collection = new CollectionOfItems();
+                    collection.CheckIfNumberExists(number);
+                }
+                else
+                {
+                    Console.WriteLine("Entry could not be parsed.");
+                }
             }
-            int CountDiscount(int number)
-            {
-                number -= number * discount / 100;
-                return number;
-            }
-        }
+           
+           
+        }      
     }
 }
